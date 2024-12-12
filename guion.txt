@@ -1,0 +1,25 @@
+- Vamos usar redes convolutivas para crear un clasificar de imagenes, en este caso de paisajes, donde estan clasificadas por edificios, bosque, glaciares, montaña, mar y calles.
+
+1- Primero para poder usar torch en nuestro ordenador tenemos que tener cuda para usar nuestra gpu entonces detectamos el dispositivo para luego usarlo.
+
+2- Importamos y descargamos el dataset de las imagenes.
+
+3- Tenemos que normalizar los datos con las transformaciones, es decir, primero redimensionamos las imagenes a 150x150 como nos pone el dataset, luego lo convertimos en tensores y normalizamos las imagenes en RGB.
+
+4- Cargamos el data set con la ruta correspondiente de nuestro dataset y lo añadimos a nuestros loaders. Finalmente, mostramos el tipo de categorias que hay.
+
+5- Obtenemos una imagen aleatoria del dataset, con label correspondiente y a la imagen la desnormalizamos y la usamos con nuestro dispositivo y finalmente la mostramos, en este caso es una montaña.
+
+6- Empezamos a definir nuestro modelo. Usamos una red convolutiva donde tenemos 3 entradas (3 canales RGB) y 32 salidas, con un kernel de 5x5. Además, añadimos un MaxPool de 2x2 para traernos los mejores datos de la red anterior. Luego pasamos a la siguiente red convolutiva de 32 entradas y 64 canales de salida y de nuevo un kernel de 5x5. finalmente usamos dos redes lineales, la primera donde la entrada es la imagen (150x150) en una sola dimension, con 256 salidas y la segunda con esas 256 salidas pasadas a entradas y 6 salidas pues son 6 categorías.
+
+7- En el forward lo que hacemos es que aplanamos la imagen para poder trabajar con esa con una sola dimension y calculamos los parametros y el error.
+
+8- Hacemos una prediccion antes del entrenamiento para comparar despues del entrenamiento.
+
+9- Definimos el criterio de pérdida y el optimizador.
+
+10- Empezamos con el entrenamiento, donde definimos 10 épocas. Vamos observando la pérdida cada vez menor.
+
+11- Evaluamos el modelo para ver si ha sido fructifero nuestro entrenamiento y podemos observar el nivel de precision, que en este caso es 77.3% y de nuevo hacemos una predicción para el buen entrenamiento y nuestro modelo acierta con la prediccion.
+
+12- Por otro lado, intente hacer otro modelo con la misma tecnica para que clasificara deportes, tiene un porcentaje menor pues necesita mucho mas entramiento porque son 100 cateogrias posibles y muchas mas imagenes de entrenamiento, el cual necesita más tiempo. Pero aún así acierta la prediccion.
