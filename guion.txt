@@ -1,3 +1,6 @@
+EL LANDSCAPECLASSIFIER ES SOLO CON REDES CONVOLUTIVAS Y EL LANDSCAPECLASIFIER2 ES CON EL TRANSFER LEARNING
+
+
 - Vamos usar redes convolutivas para crear un clasificar de imagenes, en este caso de paisajes, donde estan clasificadas por edificios, bosque, glaciares, montaña, mar y calles.
 
 1- Primero para poder usar torch en nuestro ordenador tenemos que tener cuda para usar nuestra gpu entonces detectamos el dispositivo para luego usarlo.
